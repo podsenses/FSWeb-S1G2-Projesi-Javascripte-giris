@@ -19,7 +19,12 @@ Aşağıdakileri yap:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
-
+let surucuYasi = 20;
+if (surucuYasi > 18) {
+  console.log(true);
+} else {
+  console.log(false);
+}
 /*
 Görev 1b - Değerler (puanlamaya dahil değildir)
 
@@ -31,7 +36,12 @@ Aşağıdakileri yap:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
-
+let birinciDeger = 17;
+let ikinciDeger = 34;
+if (birinciDeger > ikinciDeger) {
+  birinciDeger = 45;
+}
+console.log(birinciDeger);
 /*
 Görev 1c - String bir değeri Number'a dönüştürün (puanlamaya dahil değildir)
 
@@ -42,6 +52,9 @@ Aşağıdakileri yap:
 
    İPUCU: Number metoduna bakabilirsin
 */
+let stringTip = "1999";
+let integerTip = Number(stringTip);
+console.log(integerTip);
 
 /*
 Görev 1d - Çarpma
@@ -52,10 +65,10 @@ Aşağıdakileri yaparak carpma isimli fonksiyonu tamamla:
    3. console.log(carpma(7,4)) ile yazdığın fonsiyonu test edin. Console'da sonucu 28 olarak görmelisin.
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function carpma(a, b) {
+  return a * b;
 }
-
+console.log(carpma(7, 4));
 /* Görev 2 : Köpeğin Yaşı */
 
 /*
@@ -65,10 +78,11 @@ Aşağıdakileri yap:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(insanYasi) {
+  let kopeginYasi = insanYasi * 7;
+  return kopeginYasi;
 }
-
+console.log(5);
 /* Görev 3 */
 /*
 Aşağıdakileri oyun isimli fonksiyonu kullanarak yap.
@@ -83,9 +97,29 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yap.
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
 
-function oyun(oyuncu, bilgisayar) {
-  /*buraya kodunu yazabilirsin*/
+function oyun(oyuncuTercihi, bilgisayarTercihi) {
+  if (
+    (oyuncuTercihi === "Taş" && bilgisayarTercihi === "Makas") ||
+    (oyuncuTercihi === "Kağıt" && bilgisayarTercihi === "Taş") ||
+    (oyuncuTercihi === "Makas" && bilgisayarTercihi === "Kağıt")
+  ) {
+    return "Kazandın!";
+  } else if (
+    (oyuncuTercihi === "Makas" && bilgisayarTercihi === "Taş") ||
+    (oyuncuTercihi === "Taş" && bilgisayarTercihi === "Kağıt") ||
+    (oyuncuTercihi === "Kağıt" && bilgisayarTercihi === "Makas")
+  ) {
+    return "Kaybettin!";
+  } else {
+    return "Beraberlik";
+  }
 }
+
+// Fonksiyonu test etmek için:
+let oyuncuTercihi = "Taş";
+let bilgisayarTercihi = "Makas";
+let sonucMessage = oyun(oyuncuTercihi, bilgisayarTercihi);
+console.log(sonucMessage);
 
 // Şimdi Taş, Kağıt, Makas oyununu bilgisayara karşı oynayalım!
 /*
@@ -113,10 +147,11 @@ Aşağdaki milDonusturucu fonksiyonunu aşağıdakileri kullanarak tamamla:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(kilometre) {
+  const birKilometre = 0.621371;
+  const mil = kilometre * birKilometre;
+  return mil;
 }
-
 //Görev 4b - Santimetreden Feet
 /*
 Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yap:
@@ -126,10 +161,17 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yap:
 
 Google'da arama ipucu: "feet cm dönüştürme"
 */
+function feetDonusturucu(santimetre) {
+  const birSantimetre = 0.0328084; // 1 santimetre kaç feet eder (Yaklaşık değer)
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+  const feet = santimetre * birSantimetre;
+  return feet;
 }
+
+// Fonksiyonu test etmek için:
+let santimetre = 100; // Örnek olarak 100 santimetreyi feet'e dönüştürelim
+let feetDegeri = feetDonusturucu(santimetre);
+console.log(feetDegeri);
 
 /* Görev 5 : 5 küçük maymun yatakta zıplamış şarkısını çocuklar için hazırladığımı varsayalım. https://www.youtube.com/watch?v=e4EJ34xnlxk */
 
